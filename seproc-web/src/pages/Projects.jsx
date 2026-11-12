@@ -1,24 +1,24 @@
-import { Link } from 'react-router-dom'
-import Container from '../components/ui/Container'
-import SectionHeading from '../components/ui/SectionHeading'
+import PageHeader from '../components/ui/PageHeader'
+import ProvisionalTag from '../components/ui/ProvisionalTag'
+import ProjectGrid from '../components/sections/projects/ProjectGrid'
+import CtaSection from '../components/sections/CtaSection'
+import { projectsContent } from '../data/projects'
 
 export default function Projects() {
+  const { header, cta, provisional } = projectsContent
+
   return (
-    <section className="bg-blueprint py-24">
-      <Container>
-        <SectionHeading
-          index="03"
-          eyebrow="Proyectos"
-          title="Proyectos"
-          description="Página provisional."
-        />
-        <Link
-          to="/proyectos/proyecto-de-prueba"
-          className="mt-10 inline-block font-mono text-sm underline underline-offset-4"
-        >
-          Probar ruta de detalle de proyecto
-        </Link>
-      </Container>
-    </section>
+    <>
+      <PageHeader
+        index={header.index}
+        eyebrow={header.eyebrow}
+        title={header.title}
+        description={header.description}
+      >
+        {provisional && <ProvisionalTag />}
+      </PageHeader>
+      <ProjectGrid />
+      <CtaSection title={cta.title} text={cta.text} />
+    </>
   )
 }

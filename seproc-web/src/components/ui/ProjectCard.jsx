@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowUpRight } from 'lucide-react'
 import Photo from './Photo'
+import { getCategoryLabel } from '../../data/projects'
 
 export default function ProjectCard({ project }) {
   return (
@@ -23,7 +24,7 @@ export default function ProjectCard({ project }) {
           {project.title}
         </h3>
         <p className="shrink-0 pt-1 font-mono text-xs uppercase tracking-[0.15em] text-carbon-500">
-          {project.category}
+          {getCategoryLabel(project.category)}
         </p>
       </div>
     </Link>

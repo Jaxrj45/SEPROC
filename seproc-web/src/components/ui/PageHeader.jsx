@@ -1,9 +1,18 @@
+import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import Container from './Container'
 import Reveal from './Reveal'
 import { cn } from '../../utils/cn'
 
-export default function PageHeader({ index, eyebrow, title, description, children, className }) {
+export default function PageHeader({
+  index,
+  eyebrow,
+  title,
+  description,
+  trail = [],
+  children,
+  className,
+}) {
   return (
     <section className={cn('border-b border-carbon-200 bg-blueprint py-20 sm:py-28', className)}>
       <Container>
@@ -15,6 +24,16 @@ export default function PageHeader({ index, eyebrow, title, description, childre
             <Link to="/" className="transition-colors hover:text-carbon-900">
               Inicio
             </Link>
+            {trail.map((item) => (
+              <Fragment key={item.to}>
+                <span className="mx-3" aria-hidden="true">
+                  /
+                </span>
+                <Link to={item.to} className="transition-colors hover:text-carbon-900">
+                  {item.label}
+                </Link>
+              </Fragment>
+            ))}
             <span className="mx-3" aria-hidden="true">
               /
             </span>
