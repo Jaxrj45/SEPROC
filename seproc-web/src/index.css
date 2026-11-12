@@ -1,1 +1,76 @@
 @import "tailwindcss";
+
+
+@theme {
+  /* Escala de grises "carbón" */
+  --color-carbon-50: #f6f5f4;
+  --color-carbon-100: #e9e7e6;
+  --color-carbon-200: #d3d0ce;
+  --color-carbon-300: #b0abaa;
+  --color-carbon-400: #8a8483;
+  --color-carbon-500: #6b6564;
+  --color-carbon-600: #544e4d;
+  --color-carbon-700: #453f3e;
+  --color-carbon-800: #302c2b;
+  --color-carbon-900: #211e1d;
+  --color-carbon-950: #141211;
+
+  /* Acento de marca */
+  --color-seproc: #f2e814;
+  --color-seproc-dark: #d6cc0a;
+
+  /* Fondo general: tono papel */
+  --color-paper: #f4f2ee;
+
+  /* Tipografías */
+  --font-display: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+}
+
+/* Estilos base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-carbon-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--color-seproc);
+    color: var(--color-carbon-950);
+  }
+
+  /* Accesibilidad*/
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(to right, rgb(69 63 62 / 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(69 63 62 / 0.07) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+@utility bg-blueprint-dark {
+  background-image:
+    linear-gradient(to right, rgb(244 242 238 / 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(244 242 238 / 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
