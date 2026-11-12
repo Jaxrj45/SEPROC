@@ -11,8 +11,15 @@ export default function HomeHero() {
   return (
     <section className="relative isolate flex min-h-svh items-end overflow-hidden bg-carbon-950">
       <div className="absolute inset-0 -z-10">
-        <Photo label="Foto principal de referencia" priority />
+        <Photo
+          src={hero.image}
+          alt=""
+          label="Foto principal de referencia"
+          variant="hero"
+          priority
+        />
         <div className="absolute inset-0 bg-linear-to-t from-carbon-950 via-carbon-950/55 to-carbon-950/30" />
+        <div className="absolute inset-0 bg-linear-to-r from-carbon-950/70 via-carbon-950/20 to-transparent" />
       </div>
 
       <Container className="pb-16 pt-40 sm:pb-24">

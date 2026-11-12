@@ -1,17 +1,24 @@
-import Container from '../components/ui/Container'
-import SectionHeading from '../components/ui/SectionHeading'
+import PageHeader from '../components/ui/PageHeader'
+import ProvisionalTag from '../components/ui/ProvisionalTag'
+import ServiceList from '../components/sections/services/ServiceList'
+import CtaSection from '../components/sections/CtaSection'
+import { servicesContent } from '../data/services'
 
 export default function Services() {
+  const { header, cta, provisional } = servicesContent
+
   return (
-    <section className="bg-blueprint py-24">
-      <Container>
-        <SectionHeading
-          index="02"
-          eyebrow="Servicios"
-          title="Servicios"
-          description="Página provisional"
-        />
-      </Container>
-    </section>
+    <>
+      <PageHeader
+        index={header.index}
+        eyebrow={header.eyebrow}
+        title={header.title}
+        description={header.description}
+      >
+        {provisional && <ProvisionalTag />}
+      </PageHeader>
+      <ServiceList />
+      <CtaSection title={cta.title} text={cta.text} />
+    </>
   )
 }

@@ -55,11 +55,13 @@
     *::before,
     *::after {
       animation-duration: 0.01ms !important;
+      animation-delay: 0s !important;
       transition-duration: 0.01ms !important;
+      transition-delay: 0s !important;
     }
+  
   }
 }
-
 
 @utility bg-blueprint {
   background-image:
@@ -73,4 +75,29 @@
     linear-gradient(to right, rgb(244 242 238 / 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgb(244 242 238 / 0.06) 1px, transparent 1px);
   background-size: 64px 64px;
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility draw-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-line 2.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@utility fade-in-slow {
+  animation: fade-in 1.6s ease-out 1.2s both;
 }
