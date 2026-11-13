@@ -1,11 +1,11 @@
 export const company = {
-  name: 'SEPROC',
-  fullName: 'SEPROC, Servicios Profesionales de Construcción',
+  name: 'Seproc',
+  fullName: 'Seproc, Servicios Profesionales de Construcción',
   description:
     'Diseño, planificación, ejecución y supervisión de proyectos de construcción.',
   phone: '+502 5536 9711',
-  phoneHref: '+50200000000',
-  email: 'correo@ejemplo.com',
+  phoneHref: '+50255369711',
+  email: 'Seprocarquitectura@gmail.com',
   address: 'Dirección por definir, Guatemala',
   whatsapp: '50255369711',
   whatsappMessage: 'Hola, me gustaría solicitar información sobre sus servicios.',
