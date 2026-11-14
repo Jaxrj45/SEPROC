@@ -1,3 +1,4 @@
+import Seo from '../components/ui/Seo'
 import Container from '../components/ui/Container'
 import SectionHeading from '../components/ui/SectionHeading'
 import Button from '../components/ui/Button'
@@ -5,6 +6,7 @@ import Button from '../components/ui/Button'
 export default function NotFound() {
   return (
     <section className="bg-blueprint py-24">
+      <Seo title="Página no encontrada" noindex />
       <Container>
         <SectionHeading
           index="404"

@@ -1,5 +1,6 @@
 import { Fragment } from 'react'
 import { useParams } from 'react-router-dom'
+import Seo from '../components/ui/Seo'
 import PageHeader from '../components/ui/PageHeader'
 import ProvisionalTag from '../components/ui/ProvisionalTag'
 import Container from '../components/ui/Container'
@@ -20,6 +21,11 @@ export default function ProjectDetail() {
 
   return (
     <Fragment key={project.slug}>
+      <Seo
+        title={project.title}
+        description={project.summary}
+        path={`/proyectos/${project.slug}`}
+      />
       <PageHeader
         index="03.1"
         eyebrow={project.title}

@@ -1,7 +1,9 @@
+import { Suspense } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import ScrollToTop from './ScrollToTop'
+import RouteFallback from './RouteFallback'
 import WhatsAppButton from '../ui/WhatsAppButton'
 import { cn } from '../../utils/cn'
 
@@ -18,8 +20,14 @@ export default function Layout() {
         Saltar al contenido
       </a>
       <Navbar overHero={isHome} />
-      <main id="contenido" className={cn('flex-1', !isHome && 'pt-20')}>
-        <Outlet />
+      <main
+        id="contenido"
+        tabIndex={-1}
+        className={cn('flex-1 focus:outline-none', !isHome && 'pt-20')}
+      >
+        <Suspense fallback={<RouteFallback />}>
+          <Outlet />
+        </Suspense>
       </main>
       <Footer />
       <WhatsAppButton />

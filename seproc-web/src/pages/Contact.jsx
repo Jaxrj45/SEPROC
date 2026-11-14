@@ -1,3 +1,4 @@
+import Seo from '../components/ui/Seo'
 import PageHeader from '../components/ui/PageHeader'
 import ProvisionalTag from '../components/ui/ProvisionalTag'
 import Container from '../components/ui/Container'
@@ -5,12 +6,14 @@ import Reveal from '../components/ui/Reveal'
 import ContactForm from '../components/sections/contact/ContactForm'
 import ContactInfo from '../components/sections/contact/ContactInfo'
 import { contactContent } from '../data/contact'
+import { pageSeo } from '../data/seo'
 
 export default function Contact() {
   const { header, provisional } = contactContent
 
   return (
     <>
+      <Seo {...pageSeo.contact} />
       <PageHeader
         index={header.index}
         eyebrow={header.eyebrow}

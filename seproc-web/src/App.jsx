@@ -1,13 +1,15 @@
+import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Home from './pages/Home'
-import About from './pages/About'
-import Services from './pages/Services'
-import Projects from './pages/Projects'
-import ProjectDetail from './pages/ProjectDetail'
-import Contact from './pages/Contact'
-import NotFound from './pages/NotFound'
-import DesignSystem from './pages/DesignSystem'
+
+const About = lazy(() => import('./pages/About'))
+const Services = lazy(() => import('./pages/Services'))
+const Projects = lazy(() => import('./pages/Projects'))
+const ProjectDetail = lazy(() => import('./pages/ProjectDetail'))
+const Contact = lazy(() => import('./pages/Contact'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+const DesignSystem = import.meta.env.DEV ? lazy(() => import('./pages/DesignSystem')) : null
 
 export default function App() {
   return (
@@ -19,7 +21,7 @@ export default function App() {
         <Route path="proyectos" element={<Projects />} />
         <Route path="proyectos/:slug" element={<ProjectDetail />} />
         <Route path="contacto" element={<Contact />} />
-        <Route path="design-system" element={<DesignSystem />} />
+        {DesignSystem && <Route path="design-system" element={<DesignSystem />} />}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
